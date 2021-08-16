@@ -8,6 +8,9 @@ const { raw } = require('express')
 
 const app = express()
 
+// Use PORT environment variable (if set) else use default Port 3000
+const port = process.env.PORT || 3000
+
 // Define paths for Express config
 const publicDirecytoryPath = path.join(__dirname,'../public')
 const viewsPath = path.join(__dirname, '../templates/views')
@@ -98,6 +101,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 })
